@@ -9,7 +9,8 @@ app.use(cors());
 
 const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID || 'YOUR_CLIENT_ID';
 const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET || 'YOUR_CLIENT_SECRET';
-const REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3001/callback';
+const REDIRECT_URI =
+  process.env.REDIRECT_URI || 'http://127.0.0.1:8000/callback';
 
 const spotifyApi = new SpotifyWebApi({
   clientId: CLIENT_ID,
@@ -61,6 +62,6 @@ app.get('/api/tracks', async (req, res) => {
 
 app.use(express.static('../client/dist'));
 
-app.listen(3001, () => {
-  console.log('Server listening on http://localhost:3001');
+app.listen(8000, () => {
+  console.log('Server listening on http://127.0.0.1:8000');
 });
