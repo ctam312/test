@@ -2,6 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const SpotifyWebApi = require('spotify-web-api-node');
+const path = require("path");
 require('dotenv').config();
 
 const app = express();
@@ -61,7 +62,7 @@ app.get('/api/tracks', async (req, res) => {
   }
 });
 
-app.use(express.static('../client/dist'));
+app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 
 app.listen(8000, () => {
   console.log('Server listening on http://127.0.0.1:8000');
